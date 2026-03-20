@@ -39,31 +39,37 @@ const clientCategories = [
 
 export default function ClientsPreview() {
   return (
-    <section className="py-28 bg-navy-900 relative overflow-hidden">
+    <section className="py-28 bg-green-50 relative overflow-hidden">
+
+      {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-200/40 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-72 h-72 bg-green-100/60 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-xs font-mono text-primary-400 tracking-[0.3em] uppercase block mb-3">
+            <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
               Our Clients
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4 section-heading">
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-green-950 mb-4">
               Trusted Across Tamil Nadu
             </h2>
-            <p className="text-white/50 max-w-xl mx-auto">
+            <p className="text-green-700 text-base max-w-xl mx-auto">
               We proudly serve government institutions, hospitals, colleges, and
               industrial clients across the state.
             </p>
           </motion.div>
         </div>
 
+        {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {clientCategories.map((cat, i) => (
             <motion.div
@@ -72,26 +78,26 @@ export default function ClientsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-6 rounded-2xl glass border border-white/5 hover:border-primary-500/30 transition-all card-hover"
+              className="p-6 rounded-2xl bg-white border border-green-100 hover:border-green-400 hover:shadow-lg hover:shadow-green-100 transition-all duration-300 group"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary-500/10 flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-primary-400" />
+                <div className="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center group-hover:bg-green-500 transition-colors duration-300">
+                  <Building2 className="w-5 h-5 text-green-600 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <span className="font-display text-2xl font-bold gradient-text">
+                <span className="font-display text-2xl font-bold text-green-500">
                   {cat.count}
                 </span>
               </div>
-              <h3 className="font-semibold text-white text-sm mb-3">
+              <h3 className="font-semibold text-green-950 text-base mb-3">
                 {cat.title}
               </h3>
               <ul className="space-y-1.5">
                 {cat.examples.map((ex) => (
                   <li
                     key={ex}
-                    className="flex items-center gap-2 text-xs text-white/40"
+                    className="flex items-center gap-2 text-sm text-green-700"
                   >
-                    <div className="w-1 h-1 rounded-full bg-accent-400/50" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
                     {ex}
                   </li>
                 ))}
@@ -100,6 +106,7 @@ export default function ClientsPreview() {
           ))}
         </div>
 
+        {/* View all button */}
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0 }}
@@ -108,7 +115,7 @@ export default function ClientsPreview() {
           >
             <Link
               href="/clients"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border border-primary-500/30 text-primary-300 hover:bg-primary-500/10 transition-all font-semibold"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-green-500 hover:bg-green-600 text-white font-semibold text-base shadow-lg shadow-green-500/30 hover:shadow-xl transition-all duration-200"
             >
               <span>View Full Client List</span>
               <ArrowRight className="w-4 h-4" />

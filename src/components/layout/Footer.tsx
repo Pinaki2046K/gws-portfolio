@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -31,37 +30,41 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-navy-900 border-t border-primary-500/10 overflow-hidden">
+    <footer className="relative bg-green-900 border-t border-green-700/50 overflow-hidden">
+      
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-500/5 rounded-full blur-3xl" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-green-500/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
                 <Droplets className="w-5 h-5 text-white" />
               </div>
               <div>
                 <div className="font-display text-lg font-bold text-white leading-tight">
                   Global Water
                 </div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary-300">
+                <div className="text-xs font-mono uppercase tracking-[0.2em] text-green-300">
                   Systems
                 </div>
               </div>
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed mb-6">
+
+            <p className="text-green-200/70 text-sm leading-relaxed mb-6">
               Providing integrated water and wastewater treatment solutions for
               industry, institutions, and communities across India since over a
               decade.
             </p>
+
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-xs text-white/40 font-mono">
+              <span className="text-xs text-green-300/60 font-mono">
                 GST: 33ANHPM8965G1ZM
               </span>
             </div>
@@ -77,9 +80,9 @@ export default function Footer() {
                 <li key={s.name}>
                   <Link
                     href={s.href}
-                    className="flex items-center gap-2 text-sm text-white/50 hover:text-accent-400 transition-colors group"
+                    className="flex items-center gap-2 text-sm text-green-200/60 hover:text-green-300 transition-colors group"
                   >
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     {s.name}
                   </Link>
                 </li>
@@ -97,9 +100,9 @@ export default function Footer() {
                 <li key={l.name}>
                   <Link
                     href={l.href}
-                    className="flex items-center gap-2 text-sm text-white/50 hover:text-accent-400 transition-colors group"
+                    className="flex items-center gap-2 text-sm text-green-200/60 hover:text-green-300 transition-colors group"
                   >
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     {l.name}
                   </Link>
                 </li>
@@ -112,62 +115,67 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5 font-mono">
               Contact
             </h4>
+
             <div className="space-y-4">
+
               <div className="flex gap-3">
-                <MapPin className="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" />
-                <p className="text-sm text-white/50 leading-relaxed">
+                <MapPin className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                <p className="text-sm text-green-200/60 leading-relaxed">
                   161, Grafton Street, VGN Monte Carlo, Guruswamy road,
                   Nolambur, Chennai - 600 095
                 </p>
               </div>
+
               <div className="flex gap-3">
-                <Phone className="w-4 h-4 text-primary-400 flex-shrink-0" />
-                <div className="text-sm text-white/50">
+                <Phone className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <div className="text-sm text-green-200/60">
                   <a
                     href="tel:+918489918512"
-                    className="hover:text-accent-400 transition-colors block"
+                    className="hover:text-green-300 transition-colors block"
                   >
                     +91 8489918512
                   </a>
                   <a
                     href="tel:+918489918513"
-                    className="hover:text-accent-400 transition-colors block"
+                    className="hover:text-green-300 transition-colors block"
                   >
                     +91 8489918513
                   </a>
                 </div>
               </div>
+
               <div className="flex gap-3">
-                <Mail className="w-4 h-4 text-primary-400 flex-shrink-0" />
+                <Mail className="w-4 h-4 text-green-400 flex-shrink-0" />
                 <a
                   href="mailto:gwsmaraimozhi@gmail.com"
-                  className="text-sm text-white/50 hover:text-accent-400 transition-colors break-all"
+                  className="text-sm text-green-200/60 hover:text-green-300 transition-colors break-all"
                 >
                   gwsmaraimozhi@gmail.com
                 </a>
               </div>
+
               <div className="flex gap-3">
-                <Globe className="w-4 h-4 text-primary-400 flex-shrink-0" />
+                <Globe className="w-4 h-4 text-green-400 flex-shrink-0" />
                 <a
                   href="https://www.gwscare.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white/50 hover:text-accent-400 transition-colors"
+                  className="text-sm text-green-200/60 hover:text-green-300 transition-colors"
                 >
                   www.gwscare.com
                 </a>
               </div>
+
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-sm font-mono">
-            © {new Date().getFullYear()} Global Water Systems. All rights
-            reserved.
+        <div className="border-t border-green-700/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-green-300/50 text-sm font-mono">
+            © {new Date().getFullYear()} Global Water Systems. All rights reserved.
           </p>
-          <p className="text-white/20 text-xs">
+          <p className="text-green-300/40 text-xs">
             MD: Mr. MaraiMozhi | Chennai, Tamil Nadu, India
           </p>
         </div>

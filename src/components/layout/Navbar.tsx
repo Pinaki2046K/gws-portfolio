@@ -19,10 +19,10 @@ const products = [
 ];
 
 const ourWorks = [
-  { name: "Water Treatment Plant", href: "/our-works/water-treatment" },
-  { name: "Sewage & Effluent Treatment Plant", href: "/our-works/sewage-effluent" },
-  { name: "Zero Discharge Plant", href: "/our-works/zero-discharge" },
-  { name: "Multi Stage Biological Treatment", href: "/our-works/multi-stage-bio" },
+  { name: "Domestic RO Plant", href: "/our-works/domestic-ro-plant" },
+  { name: "Water treatment Plant", href: "/our-works/water-treatment" },
+  { name: "Industrial RO Plants", href: "/our-works/industrial-ro-plant" },
+  // { name: "Multi Stage Biological Treatment", href: "/our-works/multi-stage-bio" },
 ];
 
 const navLinks = [

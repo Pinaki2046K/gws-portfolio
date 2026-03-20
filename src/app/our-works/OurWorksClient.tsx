@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 
 const works = [
   {
-    title: "Water Treatment Plant",
+    title: "Domestic RO Plant",
     description:
       "Comprehensive water treatment facilities combining filtration, softening, and purification to deliver safe drinking and process water for industries, hospitals, and government institutions.",
     image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80",

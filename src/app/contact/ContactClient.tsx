@@ -141,12 +141,11 @@ export default function ContactClient() {
               Get In Touch
             </span>
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-green-950 mb-4">
-              Let&apos;s Build Your{" "}
+              {"Let's Build Your "}
               <span className="text-green-500">Water Solution</span>
             </h2>
             <p className="text-green-700 text-base leading-relaxed">
-              Whether you need a small domestic RO system or a large-scale industrial
-              treatment plant, we&apos;re here to help.
+              {"Whether you need a small domestic RO system or a large-scale industrial treatment plant, we're here to help."}
             </p>
           </motion.div>
 
@@ -203,7 +202,7 @@ export default function ContactClient() {
                   Send Us a Message
                 </h3>
                 <p className="text-green-200 text-sm">
-                  Fields marked with * are required. We&apos;ll respond within 24 hours.
+                  {"Fields marked with * are required. We'll respond within 24 hours."}
                 </p>
               </div>
 

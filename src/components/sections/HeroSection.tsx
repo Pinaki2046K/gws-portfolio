@@ -1,0 +1,213 @@
+"use client";
+
+import { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, ChevronDown, Droplets, Shield, Zap } from "lucide-react";
+import hero_bg from "@/images/hero_bg.png";
+
+const particles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: Math.random() * 4 + 2,
+  delay: Math.random() * 8,
+  duration: Math.random() * 6 + 6,
+}));
+
+export default function HeroSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  return (
+    <section
+      ref={ref}
+      className="relative min-h-screen flex items-center overflow-hidden bg-navy-900"
+    >
+      {/* Background image with parallax */}
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero_bg.png"
+          alt="Water Treatment Plant"
+          fill
+          className="object-cover opacity-20"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/60 via-navy-900/40 to-navy-900" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-transparent to-navy-900/80" />
+      </motion.div>
+
+      {/* Animated particles */}
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full bg-primary-400/30"
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
+          }}
+          animate={{
+            y: [0, -30, -20, -40, 0],
+            opacity: [0.3, 0.8, 0.5, 0.7, 0.3],
+          }}
+          transition={{
+            duration: p.duration,
+            delay: p.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      {/* Diagonal line decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <svg
+          className="absolute top-0 right-0 w-1/2 h-full opacity-5"
+          viewBox="0 0 600 800"
+        >
+          {Array.from({ length: 8 }, (_, i) => (
+            <line
+              key={i}
+              x1={i * 80}
+              y1="0"
+              x2={i * 80 + 200}
+              y2="800"
+              stroke="#0087ff"
+              strokeWidth="1"
+            />
+          ))}
+        </svg>
+      </div>
+
+      {/* Content */}
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20"
+      >
+        <div className="max-w-3xl">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary-500/30 mb-8"
+          >
+            <Droplets className="w-4 h-4 text-accent-400" />
+            <span className="text-sm font-mono text-accent-400 tracking-wider">
+              WATER TREATMENT EXPERTS
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6"
+          >
+            Pure Water,{" "}
+            <span className="gradient-text">Cleaner Future</span>
+            <span className="text-white">.</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-lg text-white/60 leading-relaxed mb-10 max-w-xl"
+          >
+            Global Water Systems delivers end-to-end water and wastewater
+            treatment solutions — from design to commissioning — for industries,
+            institutions, and communities across India.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="flex flex-wrap gap-4 mb-16"
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 px-7 py-3.5 btn-primary rounded-2xl font-semibold text-white"
+              >
+                <span>Explore Solutions</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 glass rounded-2xl font-semibold text-white border border-white/20 hover:border-primary-400/50 transition-all"
+              >
+                <span>Contact Us</span>
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Feature pills */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="flex flex-wrap gap-3"
+          >
+            {[
+              { icon: Shield, text: "ISO Certified" },
+              { icon: Zap, text: "Turnkey Projects" },
+              { icon: Droplets, text: "10+ Years Experience" },
+            ].map(({ icon: Icon, text }) => (
+              <div
+                key={text}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10"
+              >
+                <Icon className="w-3.5 h-3.5 text-accent-400" />
+                <span className="text-sm text-white/70 font-mono">{text}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+      >
+        <span className="text-xs font-mono text-white/30 tracking-widest uppercase">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <ChevronDown className="w-5 h-5 text-white/30" />
+        </motion.div>
+      </motion.div>
+
+      {/* Bottom wave */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <svg viewBox="0 0 1440 80" className="w-full">
+          <path
+            fill="#020e1f"
+            d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
+          />
+        </svg>
+      </div>
+    </section>
+  );
+}

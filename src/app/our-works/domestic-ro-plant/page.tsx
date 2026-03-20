@@ -1,97 +1,231 @@
 "use client";
-import WorkDetailPage from "@/components/ui/WorkDetailPage";
-import PageHero from "@/components/ui/PageHero";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import PageHero from "@/components/ui/PageHero";
+import { CheckCircle2, Users, Briefcase, HeartHandshake, Globe2 } from "lucide-react";
 
-const capacities = [
+const industries = [
+  "Tannery",
+  "Dyeing / Textile Industry",
+  "Food Processing",
+  "Dairy / Milk Industry",
+  "Paper & Pulp Industry",
+  "Pharmaceuticals",
+  "Distilleries",
+  "Metal Finishing",
+  "Refineries",
+  "Fertilizers",
+  "Ice Cream Industry",
+  "Leather Industry",
+];
+
+const domesticServices = [
+  "Domestic Water Treatment & Solid Waste Management",
+  "Residential Waste Water Treatment",
+  "RO Plant & Other Domestic Services",
+];
+
+const timeline = [
   {
-    lph: "10 LPH",
-    ideal: "Small homes & studios",
-    image: "/images/10lph.png",
-    color: "from-green-400 to-green-600",
-    variants: ["UV", "UF", "Alkaline", "Mineral Booster", "TDS Controller"],
+    year: "Inception",
+    title: "Company Founded",
+    desc: "Global Water Systems was established with a vision to provide clean water solutions for all.",
   },
   {
-    lph: "25 LPH",
-    ideal: "Apartments & small offices",
-    image: "/images/10lph.png",
-    color: "from-green-500 to-green-700",
-    variants: ["UV", "UF", "Alkaline", "Mineral Booster", "TDS Controller"],
+    year: "Growth",
+    title: "Government Contracts",
+    desc: "Secured major projects with Tamil Nadu government hospitals and PWD.",
   },
   {
-    lph: "50 LPH",
-    ideal: "Clinics, canteens & hostels",
-    image: "/images/10lph.png",
-    color: "from-green-600 to-green-800",
-    variants: ["UV", "UF", "Alkaline", "Mineral Booster", "TDS Controller"],
+    year: "Expansion",
+    title: "Industrial Clients",
+    desc: "Expanded scope to serve pharma, textile, and food processing industries.",
   },
   {
-    lph: "100 LPH",
-    ideal: "Gated communities & institutions",
-    image: "/images/10lph.png",
-    color: "from-green-700 to-green-900",
-    variants: ["UV", "UF", "Alkaline", "Mineral Booster", "TDS Controller"],
+    year: "Today",
+    title: "Pan Tamil Nadu Presence",
+    desc: "Delivering turnkey water treatment projects across 15+ districts in Tamil Nadu.",
   },
 ];
 
-const features = [
-  "Multi-stage RO + UV + UF purification",
-  "Handles TDS up to 2000 ppm",
-  "Compact wall-mounted or under-sink design",
-  "Auto shut-off and low water pressure cut-off",
-  "Food-grade materials throughout",
-  "Easy filter replacement with tool-free access",
-  "LED indicators for filter life and water quality",
+const sectors = [
+  "Residential",
+  "Gated Communities",
+  "Hotels",
+  "Educational Institutions",
+  "Industries",
+  "Medical Colleges & Hospitals",
+  "Government Sectors",
 ];
 
-export default function DomesticROPlantPage() {
+export default function AboutClient() {
   return (
     <>
       <PageHero
-        title="Domestic RO Plant"
-        subtitle="Pure, safe drinking water for your home — compact, efficient, and built to last."
-        breadcrumbs={[
-          { label: "Products & Services", href: "/products" },
-          { label: "Domestic RO Plant" },
-        ]}
-        image="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80"
-        tag="Products"
+        title="About Global Water Systems"
+        subtitle="A decade of integrated water and wastewater engineering, built on a foundation of quality, sustainability, and customer commitment."
+        breadcrumbs={[{ label: "About Us" }]}
+        image="https://images.unsplash.com/photo-1565715101968-43e03d9c2b6b?w=1920&q=80"
+        tag="Who We Are"
       />
 
       <section className="py-24 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Intro */}
+          {/* ── About Us Intro Banner ── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto mb-20"
+            transition={{ duration: 0.7 }}
+            className="mb-24 rounded-3xl bg-green-600 overflow-hidden relative"
           >
-            <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
-              Overview
-            </span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-green-950 mb-5">
-              About This <span className="text-green-500">Technology</span>
-            </h2>
-            <p className="text-green-700 text-base leading-relaxed mb-4">
-              A Domestic RO Plant uses advanced Reverse Osmosis membrane technology
-              to remove dissolved salts, heavy metals, bacteria, and other
-              contaminants from tap, borewell, or municipal water — delivering
-              clean, safe drinking water right at your home.
-            </p>
-            <p className="text-green-700 text-base leading-relaxed">
-              Our domestic RO systems are compact, easy to install, and require
-              minimal maintenance. Designed for Indian water conditions, they
-              effectively handle high TDS, hardness, and microbial contamination.
-            </p>
+            <div className="absolute -top-20 -right-20 w-72 h-72 bg-green-500/30 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-green-800/30 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="relative grid lg:grid-cols-2 gap-0">
+              <div className="p-10 lg:p-14">
+                <span className="text-sm font-mono text-green-200 tracking-[0.3em] uppercase block mb-4">
+                  About Us
+                </span>
+                <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+                  End-to-End Water Treatment{" "}
+                  <span className="text-green-200">Solutions</span>
+                </h2>
+                <p className="text-green-100 text-base leading-relaxed mb-6">
+                  Global Water Systems delivers end-to-end water treatment solutions
+                  for residential, gated communities, hotels, educational institutions,
+                  industries, medical colleges and hospitals &amp; government sectors.
+                </p>
+                <p className="text-green-100 text-base leading-relaxed mb-8">
+                  Two decades of water treatment experience with{" "}
+                  <span className="font-bold text-white">14,000 satisfied clients</span>{" "}
+                  across India in various sectors.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {sectors.map((s) => (
+                    <span
+                      key={s}
+                      className="px-3 py-1.5 rounded-full bg-green-500/40 border border-green-400/50 text-sm text-green-100 font-mono"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-px bg-green-500/30 border-l border-green-500/30">
+                {[
+                  { value: "20+", label: "Years of Experience", icon: Globe2 },
+                  { value: "14,000+", label: "Satisfied Clients", icon: HeartHandshake },
+                  { value: "100+", label: "Govt. Institutions", icon: Briefcase },
+                  { value: "38+", label: "Districts Covered", icon: Users },
+                ].map(({ value, label, icon: Icon }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center justify-center p-8 bg-green-700/40 hover:bg-green-700/60 transition-colors duration-300 text-center"
+                  >
+                    <Icon className="w-6 h-6 text-green-300 mb-3" />
+                    <div className="font-display text-3xl font-bold text-white mb-1">{value}</div>
+                    <div className="text-green-200 text-xs font-mono uppercase tracking-wider">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
-          {/* ── Capacity Cards ── */}
-          <div className="mb-20">
+          {/* ── Intro grid ── */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="relative h-48 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&q=80"
+                      alt="Water plant"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative h-32 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                      alt="Treatment"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="relative h-32 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=400&q=80"
+                      alt="Engineers"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80"
+                      alt="Plant"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 -right-4 bg-white border border-green-200 shadow-xl shadow-green-100 rounded-2xl p-4 text-center">
+                <div className="font-display text-3xl font-bold text-green-500">20+</div>
+                <div className="text-xs text-green-600 font-mono uppercase tracking-wider">
+                  Years Experience
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Our Story
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950 mb-6 leading-tight">
+                Integrated Solutions for a{" "}
+                <span className="text-green-500">Water-Secure World</span>
+              </h2>
+              <p className="text-green-700 text-base leading-relaxed mb-4">
+                Global Water Systems provides Environmental Services, Consultancy
+                Services, Design, Erection and Commissioning of RO Plants, Softeners,
+                Pressure Sand Filters, Activated Carbon Filters, Iron Removal Filters,
+                Effluent Treatment Plants (ETP), Sewage Treatment Plants (STP), Hydro
+                Pneumatic Systems, and Water Treatment Chemicals.
+              </p>
+              <p className="text-green-700 text-base leading-relaxed mb-6">
+                We specialize in Water, Wastewater, and Industrial Effluent Systems and
+                offer integrated solutions for customer satisfaction. Our company has two
+                decades of experience executing turnkey projects — for Industry, Home,
+                Colleges, Hospitals, Educational Institutions, and Club Projects.
+              </p>
+              <div className="p-5 rounded-2xl bg-green-100 border border-green-200">
+                <p className="text-base text-green-900 font-semibold mb-1">Quality Policy</p>
+                <p className="text-base text-green-700 italic">
+                  &quot;Committed for Consistent Technology Upgradation &amp; Pure Environment&quot;
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── Management & Operational Team ── */}
+          <div className="mb-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -99,162 +233,221 @@ export default function DomesticROPlantPage() {
               className="text-center mb-12"
             >
               <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
-                Available Models
+                Our People
               </span>
-              <h2 className="font-display text-3xl lg:text-4xl font-bold text-green-950">
-                Choose Your Capacity
+              <h2 className="font-display text-4xl font-bold text-green-950">
+                The Team Behind the Water
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {capacities.map((cap, i) => (
-                <motion.div
-                  key={cap.lph}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group rounded-3xl overflow-hidden bg-white border border-green-100 shadow-sm hover:shadow-xl hover:shadow-green-100 hover:border-green-300 transition-all duration-500"
-                >
-                  {/* Image placeholder */}
-                  <div className="relative h-56 overflow-hidden bg-green-100">
-                    <Image
-                      src={cap.image}
-                      alt={`${cap.lph} RO Plant`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-green-950/60 via-transparent to-transparent" />
-                    {/* LPH badge */}
-                    <div className="absolute bottom-4 left-4">
-                      <span className={`inline-block px-5 py-2 rounded-full bg-gradient-to-r ${cap.color} text-white font-display text-2xl font-bold shadow-lg`}>
-                        {cap.lph}
-                      </span>
-                    </div>
-                    {/* Ideal for tag */}
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1.5 rounded-full bg-white/90 text-green-700 text-xs font-mono">
-                        {cap.ideal}
-                      </span>
-                    </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Management */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="rounded-2xl overflow-hidden border border-green-100 shadow-sm bg-white"
+              >
+                <div className="bg-green-600 px-8 py-6 flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold text-white font-display">
+                    M
                   </div>
-
-                  {/* Variants */}
-                  <div className="p-6">
-                    <h3 className="font-display text-lg font-bold text-green-950 mb-4">
-                      Available Variants
+                  <div>
+                    <p className="text-green-200 text-xs font-mono uppercase tracking-widest mb-0.5">
+                      Management Team
+                    </p>
+                    <h3 className="font-display text-xl font-bold text-white">
+                      A. Maraimozhi
                     </h3>
-                    <div className="grid grid-cols-1 gap-2">
-                      {cap.variants.map((variant, vi) => (
-                        <div
-                          key={variant}
-                          className="flex items-center gap-3 p-3 rounded-xl bg-green-50 border border-green-100 hover:border-green-300 hover:bg-green-100 transition-all duration-200"
-                        >
-                          <div className="w-7 h-7 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">
-                            {vi + 1}
-                          </div>
-                          <span className="text-green-800 text-base font-medium">{variant}</span>
-                          <CheckCircle2 className="w-4 h-4 text-green-400 ml-auto" />
-                        </div>
-                      ))}
+                    <p className="text-green-200 text-sm">BTech Chem, MBA — Proprietor</p>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 text-base leading-relaxed mb-6">
+                    With a Chemical Engineering background and an MBA, Mr. Maraimozhi
+                    brings strong technical expertise and strategic vision to Global Water
+                    Systems — driving excellence across various sectors in India for more
+                    than two decades.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Chemical Engineering", "MBA", "2+ Decades Experience", "Pan India"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full bg-green-50 border border-green-200 text-sm font-mono text-green-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Operational */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="rounded-2xl overflow-hidden border border-green-100 shadow-sm bg-white"
+              >
+                <div className="bg-green-700 px-8 py-6 flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
+                    <Users className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-green-200 text-xs font-mono uppercase tracking-widest mb-0.5">
+                      Operational Team
+                    </p>
+                    <h3 className="font-display text-xl font-bold text-white">
+                      Our Workforce
+                    </h3>
+                    <p className="text-green-200 text-sm">Admin · Sales · Service Support</p>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 text-base leading-relaxed mb-6">
+                    At Global Water Systems, we believe in the satisfaction of our customers
+                    by fulfilling their water treatment needs. With our strong admin, sales,
+                    and service support network across India, we have reached a client base
+                    of{" "}
+                    <span className="font-bold text-green-900">14,000+ satisfied customers</span>.
+                  </p>
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    {[
+                      { label: "Admin", desc: "Strong backend ops" },
+                      { label: "Sales", desc: "Pan India reach" },
+                      { label: "Service", desc: "24/7 support" },
+                    ].map(({ label, desc }) => (
+                      <div
+                        key={label}
+                        className="p-3 rounded-xl bg-green-50 border border-green-100"
+                      >
+                        <div className="font-semibold text-green-900 text-base mb-0.5">{label}</div>
+                        <div className="text-green-600 text-xs">{desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* ── Scope of Services ── */}
+          <div className="mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Scope of Services
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950">
+                What We Serve
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Domestic */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="p-8 rounded-2xl bg-white border border-green-100 shadow-sm"
+              >
+                <h3 className="font-display text-xl font-bold text-green-950 mb-6 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-sm font-mono text-green-600">
+                    A
+                  </span>
+                  Domestic
+                </h3>
+                <ul className="space-y-3">
+                  {domesticServices.map((s) => (
+                    <li key={s} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 text-base">{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Industry */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="p-8 rounded-2xl bg-white border border-green-100 shadow-sm"
+              >
+                <h3 className="font-display text-xl font-bold text-green-950 mb-6 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-sm font-mono text-green-600">
+                    B
+                  </span>
+                  Industry — Turnkey Solutions
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  {industries.map((ind) => (
+                    <div key={ind} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+                      <span className="text-green-700 text-sm">{ind}</span>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
 
-          {/* Key Features */}
-          <div className="mb-20">
+          {/* ── Timeline ── */}
+          <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-10"
+              className="text-center mb-12"
             >
-              <h2 className="font-display text-3xl font-bold text-green-950">
-                Key Features
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Our Journey
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950">
+                Growth Through Excellence
               </h2>
             </motion.div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {features.map((f, i) => (
-                <motion.div
-                  key={f}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-green-100 hover:border-green-400 hover:shadow-md transition-all duration-300"
-                >
-                  <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
-                  </div>
-                  <span className="text-base text-green-700">{f}</span>
-                </motion.div>
-              ))}
+
+            <div className="relative">
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-green-400/60 via-green-300/30 to-transparent hidden md:block" />
+              <div className="space-y-8">
+                {timeline.map((item, i) => (
+                  <motion.div
+                    key={item.year}
+                    initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.15 }}
+                    className={`flex items-center gap-8 ${
+                      i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                      <div className="inline-block p-6 rounded-2xl bg-white border border-green-100 hover:border-green-400 hover:shadow-md hover:shadow-green-100 transition-all duration-300">
+                        <span className="text-sm font-mono text-green-600 tracking-wider uppercase">
+                          {item.year}
+                        </span>
+                        <h3 className="font-semibold text-green-950 text-base mt-1 mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-green-700 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                    <div className="hidden md:flex w-4 h-4 rounded-full bg-green-500 border-4 border-green-50 flex-shrink-0 relative z-10" />
+                    <div className="flex-1 hidden md:block" />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Process */}
-          <div className="mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
-              <h2 className="font-display text-3xl font-bold text-green-950">
-                Purification Process
-              </h2>
-            </motion.div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { step: "01", title: "Pre-Filter", desc: "Sediment and carbon pre-filtration to remove suspended particles and chlorine." },
-                { step: "02", title: "RO Membrane", desc: "High-rejection RO membrane removes dissolved salts, heavy metals and bacteria." },
-                { step: "03", title: "UV / UF", desc: "UV sterilisation and ultrafiltration eliminates viruses and residual microbes." },
-                { step: "04", title: "Post Polish", desc: "Final activated carbon polishing for taste, odour and pure output water." },
-              ].map((step, i) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="p-6 rounded-2xl bg-white border border-green-100 hover:border-green-400 hover:shadow-md transition-all duration-300 relative"
-                >
-                  <div className="font-display text-5xl font-bold text-green-100 absolute top-4 right-4">
-                    {step.step}
-                  </div>
-                  <div className="relative z-10">
-                    <h4 className="font-semibold text-green-900 text-base mb-2">{step.title}</h4>
-                    <p className="text-green-700 text-sm">{step.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center p-10 rounded-3xl bg-green-600 border border-green-500"
-          >
-            <h3 className="font-display text-2xl font-bold text-white mb-3">
-              Get a Custom Quote
-            </h3>
-            <p className="text-green-100 text-base mb-6">
-              Tell us your requirements and we&apos;ll recommend the right capacity and variant for you.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-green-50 rounded-2xl font-semibold text-green-800 text-base shadow-lg shadow-green-900/20 hover:shadow-xl transition-all duration-200"
-            >
-              <span>Contact Our Engineers</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
 
         </div>
       </section>

@@ -72,6 +72,7 @@ export default function AboutClient() {
       <section className="py-24 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+          {/* ── About Us Intro Banner ── */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -101,7 +102,6 @@ export default function AboutClient() {
                   <span className="font-bold text-white">14,000 satisfied clients</span>{" "}
                   across India in various sectors.
                 </p>
-
                 <div className="flex flex-wrap gap-2">
                   {sectors.map((s) => (
                     <span
@@ -134,7 +134,320 @@ export default function AboutClient() {
             </div>
           </motion.div>
 
-          {/* rest of code unchanged */}
+          {/* ── Intro grid ── */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="relative h-48 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&q=80"
+                      alt="Water plant"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative h-32 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                      alt="Treatment"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="relative h-32 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=400&q=80"
+                      alt="Engineers"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden">
+                    <Image
+                      src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80"
+                      alt="Plant"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-6 -right-4 bg-white border border-green-200 shadow-xl shadow-green-100 rounded-2xl p-4 text-center">
+                <div className="font-display text-3xl font-bold text-green-500">20+</div>
+                <div className="text-xs text-green-600 font-mono uppercase tracking-wider">
+                  Years Experience
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Our Story
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950 mb-6 leading-tight">
+                Integrated Solutions for a{" "}
+                <span className="text-green-500">Water-Secure World</span>
+              </h2>
+              <p className="text-green-700 text-base leading-relaxed mb-4">
+                Global Water Systems provides Environmental Services, Consultancy
+                Services, Design, Erection and Commissioning of RO Plants, Softeners,
+                Pressure Sand Filters, Activated Carbon Filters, Iron Removal Filters,
+                Effluent Treatment Plants (ETP), Sewage Treatment Plants (STP), Hydro
+                Pneumatic Systems, and Water Treatment Chemicals.
+              </p>
+              <p className="text-green-700 text-base leading-relaxed mb-6">
+                We specialize in Water, Wastewater, and Industrial Effluent Systems and
+                offer integrated solutions for customer satisfaction. Our company has two
+                decades of experience executing turnkey projects — for Industry, Home,
+                Colleges, Hospitals, Educational Institutions, and Club Projects.
+              </p>
+              <div className="p-5 rounded-2xl bg-green-100 border border-green-200">
+                <p className="text-base text-green-900 font-semibold mb-1">Quality Policy</p>
+                <p className="text-base text-green-700 italic">
+                  &quot;Committed for Consistent Technology Upgradation &amp; Pure Environment&quot;
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── Management & Operational Team ── */}
+          <div className="mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Our People
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950">
+                The Team Behind the Water
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Management */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="rounded-2xl overflow-hidden border border-green-100 shadow-sm bg-white"
+              >
+                <div className="bg-green-600 px-8 py-6 flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold text-white font-display">
+                    M
+                  </div>
+                  <div>
+                    <p className="text-green-200 text-xs font-mono uppercase tracking-widest mb-0.5">
+                      Management Team
+                    </p>
+                    <h3 className="font-display text-xl font-bold text-white">
+                      A. Maraimozhi
+                    </h3>
+                    <p className="text-green-200 text-sm">BTech Chem, MBA — Proprietor</p>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 text-base leading-relaxed mb-6">
+                    With a Chemical Engineering background and an MBA, Mr. Maraimozhi
+                    brings strong technical expertise and strategic vision to Global Water
+                    Systems — driving excellence across various sectors in India for more
+                    than two decades.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Chemical Engineering", "MBA", "2+ Decades Experience", "Pan India"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full bg-green-50 border border-green-200 text-sm font-mono text-green-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Operational */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="rounded-2xl overflow-hidden border border-green-100 shadow-sm bg-white"
+              >
+                <div className="bg-green-700 px-8 py-6 flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
+                    <Users className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-green-200 text-xs font-mono uppercase tracking-widest mb-0.5">
+                      Operational Team
+                    </p>
+                    <h3 className="font-display text-xl font-bold text-white">
+                      Our Workforce
+                    </h3>
+                    <p className="text-green-200 text-sm">Admin · Sales · Service Support</p>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <p className="text-green-700 text-base leading-relaxed mb-6">
+                    At Global Water Systems, we believe in the satisfaction of our customers
+                    by fulfilling their water treatment needs. With our strong admin, sales,
+                    and service support network across India, we have reached a client base
+                    of{" "}
+                    <span className="font-bold text-green-900">14,000+ satisfied customers</span>.
+                  </p>
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    {[
+                      { label: "Admin", desc: "Strong backend ops" },
+                      { label: "Sales", desc: "Pan India reach" },
+                      { label: "Service", desc: "24/7 support" },
+                    ].map(({ label, desc }) => (
+                      <div
+                        key={label}
+                        className="p-3 rounded-xl bg-green-50 border border-green-100"
+                      >
+                        <div className="font-semibold text-green-900 text-base mb-0.5">{label}</div>
+                        <div className="text-green-600 text-xs">{desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* ── Scope of Services ── */}
+          <div className="mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Scope of Services
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950">
+                What We Serve
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Domestic */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="p-8 rounded-2xl bg-white border border-green-100 shadow-sm"
+              >
+                <h3 className="font-display text-xl font-bold text-green-950 mb-6 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-sm font-mono text-green-600">
+                    A
+                  </span>
+                  Domestic
+                </h3>
+                <ul className="space-y-3">
+                  {domesticServices.map((s) => (
+                    <li key={s} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-green-700 text-base">{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Industry */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="p-8 rounded-2xl bg-white border border-green-100 shadow-sm"
+              >
+                <h3 className="font-display text-xl font-bold text-green-950 mb-6 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-sm font-mono text-green-600">
+                    B
+                  </span>
+                  Industry — Turnkey Solutions
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  {industries.map((ind) => (
+                    <div key={ind} className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+                      <span className="text-green-700 text-sm">{ind}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* ── Timeline ── */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
+                Our Journey
+              </span>
+              <h2 className="font-display text-4xl font-bold text-green-950">
+                Growth Through Excellence
+              </h2>
+            </motion.div>
+
+            <div className="relative">
+              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-green-400/60 via-green-300/30 to-transparent hidden md:block" />
+              <div className="space-y-8">
+                {timeline.map((item, i) => (
+                  <motion.div
+                    key={item.year}
+                    initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.15 }}
+                    className={`flex items-center gap-8 ${
+                      i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
+                  >
+                    <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                      <div className="inline-block p-6 rounded-2xl bg-white border border-green-100 hover:border-green-400 hover:shadow-md hover:shadow-green-100 transition-all duration-300">
+                        <span className="text-sm font-mono text-green-600 tracking-wider uppercase">
+                          {item.year}
+                        </span>
+                        <h3 className="font-semibold text-green-950 text-base mt-1 mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-green-700 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                    <div className="hidden md:flex w-4 h-4 rounded-full bg-green-500 border-4 border-green-50 flex-shrink-0 relative z-10" />
+                    <div className="flex-1 hidden md:block" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>

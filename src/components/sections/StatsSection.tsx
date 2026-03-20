@@ -1,14 +1,13 @@
 "use client";
-
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: 10, suffix: "+", label: "Years of Experience" },
-  { value: 500, suffix: "+", label: "Projects Delivered" },
-  { value: 25, suffix: "+", label: "Government Institutions" },
-  { value: 15, suffix: "+", label: "Districts Covered" },
+  { value: 20, suffix: "+", label: "Years of Experience" },
+  { value: 14000, suffix: "+", label: "Satisfied Customers" },
+  { value: 100, suffix: "+", label: "Government Institutions" },
+  { value: 38, suffix: "+", label: "Districts Covered" },
 ];
 
 export default function StatsSection() {
@@ -17,11 +16,14 @@ export default function StatsSection() {
   return (
     <section
       ref={ref}
-      className="relative py-20 bg-navy-900 overflow-hidden"
+      className="relative py-20 bg-green-600 overflow-hidden"
     >
-      {/* Blue accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
+      {/* Green accent lines */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-300/60 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-green-300/60 to-transparent" />
+
+      {/* Subtle background texture */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-500/30 via-transparent to-green-800/30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -34,7 +36,7 @@ export default function StatsSection() {
               className="text-center group"
             >
               <div className="relative inline-block">
-                <div className="text-5xl lg:text-6xl font-display font-bold gradient-text mb-2">
+                <div className="text-5xl lg:text-6xl font-display font-bold text-white mb-2">
                   {inView ? (
                     <CountUp
                       end={stat.value}
@@ -47,7 +49,7 @@ export default function StatsSection() {
                   )}
                 </div>
               </div>
-              <p className="text-white/50 text-sm font-mono uppercase tracking-wider">
+              <p className="text-green-100 text-base font-mono uppercase tracking-wider">
                 {stat.label}
               </p>
             </motion.div>

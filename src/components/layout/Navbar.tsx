@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,36 +11,18 @@ const products = [
   { name: "Water Softening Plant", href: "/products/water-softening" },
   { name: "Demineralization", href: "/products/demineralization" },
   { name: "Sea Water Desalination Plant", href: "/products/desalination" },
-  {
-    name: "Extended Aeration with ASP",
-    href: "/products/extended-aeration",
-  },
+  { name: "Extended Aeration with ASP", href: "/products/extended-aeration" },
   { name: "Moving Bed Bio Reactor (MBBR)", href: "/products/mbbr" },
-  {
-    name: "Submerged Aerobic Fixed Film Process (SAFF)",
-    href: "/products/saff",
-  },
-  {
-    name: "Nano Filtration for Textile Industry",
-    href: "/products/nano-filtration",
-  },
-  {
-    name: "Multiple Effect Evaporation Plant with Crystallizer",
-    href: "/products/evaporation",
-  },
+  { name: "Submerged Aerobic Fixed Film Process (SAFF)", href: "/products/saff" },
+  { name: "Nano Filtration for Textile Industry", href: "/products/nano-filtration" },
+  { name: "Multiple Effect Evaporation Plant with Crystallizer", href: "/products/evaporation" },
 ];
 
 const ourWorks = [
   { name: "Water Treatment Plant", href: "/our-works/water-treatment" },
-  {
-    name: "Sewage & Effluent Treatment Plant",
-    href: "/our-works/sewage-effluent",
-  },
+  { name: "Sewage & Effluent Treatment Plant", href: "/our-works/sewage-effluent" },
   { name: "Zero Discharge Plant", href: "/our-works/zero-discharge" },
-  {
-    name: "Multi Stage Biological Treatment",
-    href: "/our-works/multi-stage-bio",
-  },
+  { name: "Multi Stage Biological Treatment", href: "/our-works/multi-stage-bio" },
 ];
 
 const navLinks = [
@@ -80,26 +61,29 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "glass-dark shadow-2xl shadow-primary-900/20 py-3"
-          : "bg-transparent py-5"
+          ? "bg-white/95 backdrop-blur-md shadow-lg shadow-green-900/10 border-b border-green-100 py-3"
+          : "bg-green-50/80 backdrop-blur-sm py-5"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <motion.div
               whileHover={{ rotate: 15, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/30"
+              className="w-11 h-11 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center shadow-lg shadow-green-500/30"
             >
-              <Droplets className="w-5 h-5 text-white" />
+              <Droplets className="w-6 h-6 text-white" />
             </motion.div>
             <div>
-              <div className="font-display text-lg font-bold leading-tight tracking-wide text-white group-hover:text-accent-400 transition-colors">
+              {/* text-lg → text-xl */}
+              <div className="font-display text-xl font-bold leading-tight tracking-wide text-green-900 group-hover:text-green-600 transition-colors">
                 Global Water
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary-300">
+              {/* text-[10px] → text-xs */}
+              <div className="text-xs font-mono uppercase tracking-[0.2em] text-green-600">
                 Systems
               </div>
             </div>
@@ -123,19 +107,20 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300",
+                      // text-sm → text-base
+                      "flex items-center gap-1 px-4 py-2 rounded-lg text-base font-medium transition-all duration-300",
                       link.name === "Contact Us"
-                        ? "btn-primary px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-primary-500/40 hover:shadow-xl hover:shadow-primary-500/60"
+                        ? "bg-green-500 hover:bg-green-600 px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/50"
                         : pathname === link.href
-                          ? "text-accent-400 bg-primary-500/10"
-                          : "text-white/80 hover:text-white hover:bg-white/5"
+                          ? "text-green-600 bg-green-100"
+                          : "text-green-800 hover:text-green-900 hover:bg-green-100"
                     )}
                   >
                     {link.name}
                     {link.submenu && (
                       <ChevronDown
                         className={cn(
-                          "w-3.5 h-3.5 transition-transform duration-300",
+                          "w-4 h-4 transition-transform duration-300",
                           activeDropdown === link.name ? "rotate-180" : ""
                         )}
                       />
@@ -151,7 +136,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-72 glass-dark rounded-2xl shadow-2xl shadow-navy-900/80 overflow-hidden border border-primary-500/20"
+                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-2xl shadow-2xl shadow-green-900/15 overflow-hidden border border-green-100"
                     >
                       {link.submenu.map((item, i) => (
                         <motion.div
@@ -162,9 +147,10 @@ export default function Navbar() {
                         >
                           <Link
                             href={item.href}
-                            className="flex items-center gap-3 px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-primary-500/10 transition-all duration-200 group border-b border-white/5 last:border-0"
+                            // text-sm → text-base
+                            className="flex items-center gap-3 px-5 py-3 text-base text-green-800 hover:text-green-900 hover:bg-green-50 transition-all duration-200 group border-b border-green-50 last:border-0"
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-accent-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                             {item.name}
                           </Link>
                         </motion.div>
@@ -179,9 +165,9 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl glass text-white"
+            className="lg:hidden w-11 h-11 flex items-center justify-center rounded-xl bg-green-100 border border-green-200 text-green-800 hover:bg-green-200 transition-colors"
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -194,7 +180,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden glass-dark border-t border-white/10 overflow-hidden"
+            className="lg:hidden bg-white border-t border-green-100 overflow-hidden shadow-lg"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
@@ -203,10 +189,11 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "flex-1 py-3 px-4 rounded-xl text-sm font-medium transition-all",
+                        // text-sm → text-base
+                        "flex-1 py-3 px-4 rounded-xl text-base font-medium transition-all",
                         pathname === link.href
-                          ? "text-accent-400 bg-primary-500/10"
-                          : "text-white/80 hover:text-white hover:bg-white/5"
+                          ? "text-green-600 bg-green-100"
+                          : "text-green-800 hover:text-green-900 hover:bg-green-50"
                       )}
                     >
                       {link.name}
@@ -218,30 +205,32 @@ export default function Navbar() {
                             mobileSubmenu === link.name ? null : link.name
                           )
                         }
-                        className="p-3 text-white/60"
+                        className="p-3 text-green-600"
                       >
                         <ChevronDown
                           className={cn(
-                            "w-4 h-4 transition-transform",
+                            "w-5 h-5 transition-transform",
                             mobileSubmenu === link.name ? "rotate-180" : ""
                           )}
                         />
                       </button>
                     )}
                   </div>
+
                   <AnimatePresence>
                     {link.submenu && mobileSubmenu === link.name && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="ml-4 pl-4 border-l border-primary-500/30 space-y-1 overflow-hidden"
+                        className="ml-4 pl-4 border-l-2 border-green-200 space-y-1 overflow-hidden"
                       >
                         {link.submenu.map((item) => (
                           <Link
                             key={item.name}
                             href={item.href}
-                            className="block py-2.5 px-3 text-sm text-white/60 hover:text-accent-400 transition-colors"
+                            // text-sm → text-base
+                            className="block py-2.5 px-3 text-base text-green-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                           >
                             {item.name}
                           </Link>

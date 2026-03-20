@@ -46,7 +46,6 @@ export default function WhyChooseUs() {
   return (
     <section className="py-28 bg-white relative overflow-hidden">
 
-      {/* Subtle background image */}
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1559825481-12a05cc00344?w=1920&q=80"
@@ -56,14 +55,12 @@ export default function WhyChooseUs() {
         />
       </div>
 
-      {/* Background blob */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-100 rounded-full blur-3xl opacity-60 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-green-50 rounded-full blur-3xl opacity-80 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left */}
           <div>
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -83,17 +80,13 @@ export default function WhyChooseUs() {
                 Global Water Systems specializes in delivering integrated water
                 and wastewater solutions. We combine process technology
                 engineering with project management capability to create
-                quantifiable benefits for our customers — from homes and
+                quantifiable benefits for our customers &mdash; from homes and
                 colleges to large industrial complexes.
               </p>
 
-              {/* Quote box */}
               <div className="p-5 rounded-2xl bg-green-50 border border-green-200">
                 <p className="text-green-800 text-base italic leading-relaxed">
-                  "Our Quality Policy starts and ends with the customer as a
-                  Focus Point. Ensure Maximum Customer Satisfaction by adhering
-                  to quality standards in the technologies, products, and
-                  services that we deliver."
+                  {"Our Quality Policy starts and ends with the customer as a Focus Point. Ensure Maximum Customer Satisfaction by adhering to quality standards in the technologies, products, and services that we deliver."}
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-sm font-bold text-white">
@@ -112,7 +105,6 @@ export default function WhyChooseUs() {
             </motion.div>
           </div>
 
-          {/* Right — features grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {features.map((feature, i) => (
               <motion.div

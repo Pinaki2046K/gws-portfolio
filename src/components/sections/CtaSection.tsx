@@ -32,13 +32,11 @@ export default function CtaSection() {
             Ready to Get Started?
           </span>
           <h2 className="font-display text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Let's Build Your{" "}
+            Let&apos;s Build Your{" "}
             <span className="text-green-200">Water Solution</span> Together
           </h2>
           <p className="text-green-100 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-            Whether it's a domestic RO system or a large-scale industrial
-            effluent treatment plant, our team is ready to design and deliver
-            the perfect solution for your requirements.
+            {"Whether it's a domestic RO system or a large-scale industrial effluent treatment plant, our team is ready to design and deliver the perfect solution for your requirements."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">

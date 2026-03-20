@@ -210,7 +210,7 @@ export default function ProductDetailPage({ data }: { data: ProductDetailData })
               Get a Custom Quote
             </h3>
             <p className="text-green-100 text-base mb-6">
-              Tell us your requirements and we'll design the perfect system for you.
+              {"Tell us your requirements and we'll design the perfect system for you."}
             </p>
             <Link
               href="/contact"

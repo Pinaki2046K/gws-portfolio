@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
@@ -30,8 +29,9 @@ export default function ClientsClient() {
         tag="Who We Work With"
       />
 
-      <section className="py-24 bg-navy-900">
+      <section className="py-24 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Summary stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {[
@@ -46,12 +46,12 @@ export default function ClientsClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-5 rounded-2xl glass border border-white/5 text-center"
+                className="p-5 rounded-2xl bg-white border border-green-100 shadow-sm text-center hover:border-green-300 hover:shadow-md transition-all duration-300"
               >
-                <div className="font-display text-3xl font-bold gradient-text mb-1">
+                <div className="font-display text-3xl font-bold text-green-500 mb-1">
                   {stat.count}
                 </div>
-                <div className="text-xs text-white/50 font-mono uppercase tracking-wider">
+                <div className="text-sm text-green-600 font-mono uppercase tracking-wider">
                   {stat.label}
                 </div>
               </motion.div>
@@ -67,7 +67,7 @@ export default function ClientsClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: catIdx * 0.05 }}
-                className="rounded-2xl overflow-hidden border border-white/5 hover:border-primary-500/20 transition-all"
+                className="rounded-2xl overflow-hidden border border-green-100 hover:border-green-300 bg-white shadow-sm transition-all duration-300"
               >
                 {/* Header (accordion trigger) */}
                 <button
@@ -76,27 +76,27 @@ export default function ClientsClient() {
                       activeCategory === category.id ? null : category.id
                     )
                   }
-                  className="w-full flex items-center justify-between p-6 glass text-left group"
+                  className="w-full flex items-center justify-between p-6 text-left group hover:bg-green-50 transition-colors duration-200"
                 >
                   <div className="flex items-center gap-4">
                     <span className="text-2xl">{categoryIcons[category.id]}</span>
                     <div>
-                      <h3 className="font-display text-lg font-semibold text-white group-hover:text-accent-400 transition-colors">
+                      <h3 className="font-display text-lg font-semibold text-green-950 group-hover:text-green-600 transition-colors">
                         {category.title}
                       </h3>
                       {category.subtitle && (
-                        <p className="text-white/40 text-sm">{category.subtitle}</p>
+                        <p className="text-green-600 text-sm">{category.subtitle}</p>
                       )}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     {category.clients && (
-                      <span className="px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-xs text-primary-300 font-mono">
+                      <span className="px-3 py-1 rounded-full bg-green-100 border border-green-200 text-sm text-green-700 font-mono">
                         {category.clients.length} clients
                       </span>
                     )}
                     <ChevronDown
-                      className={`w-5 h-5 text-white/40 transition-transform duration-300 ${
+                      className={`w-5 h-5 text-green-500 transition-transform duration-300 ${
                         activeCategory === category.id ? "rotate-180" : ""
                       }`}
                     />
@@ -113,41 +113,44 @@ export default function ClientsClient() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 pt-0 bg-navy-900/50">
+                      <div className="p-6 pt-0 bg-green-50/50 border-t border-green-100">
+
                         {/* Table for clients with id/name/location */}
                         {category.clients && (
-                          <div className="overflow-x-auto rounded-xl border border-white/5">
+                          <div className="overflow-x-auto rounded-xl border border-green-100 mt-4">
                             <table className="w-full">
                               <thead>
-                                <tr className="border-b border-white/10">
-                                  <th className="text-left px-4 py-3 text-xs font-mono text-white/30 uppercase tracking-wider w-12">
+                                <tr className="border-b border-green-100 bg-green-100/60">
+                                  <th className="text-left px-4 py-3 text-xs font-mono text-green-600 uppercase tracking-wider w-12">
                                     S.No
                                   </th>
-                                  <th className="text-left px-4 py-3 text-xs font-mono text-white/30 uppercase tracking-wider">
+                                  <th className="text-left px-4 py-3 text-xs font-mono text-green-600 uppercase tracking-wider">
                                     Name of Institution
                                   </th>
-                                  <th className="text-left px-4 py-3 text-xs font-mono text-white/30 uppercase tracking-wider">
+                                  <th className="text-left px-4 py-3 text-xs font-mono text-green-600 uppercase tracking-wider">
                                     Location
                                   </th>
                                 </tr>
                               </thead>
-                              <tbody>
+                              <tbody className="bg-white">
                                 {category.clients.map((client, i) => (
                                   <motion.tr
                                     key={client.id}
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.04 }}
-                                    className="border-b border-white/5 last:border-0 hover:bg-primary-500/5 transition-colors"
+                                    className="border-b border-green-50 last:border-0 hover:bg-green-50 transition-colors"
                                   >
-                                    <td className="px-4 py-3 text-sm text-white/30 font-mono">
+                                    <td className="px-4 py-3 text-sm text-green-500 font-mono">
                                       {client.id}
                                     </td>
-                                    <td className="px-4 py-3 text-sm text-white/70 flex items-center gap-2">
-                                      <Building2 className="w-3.5 h-3.5 text-primary-500/50 flex-shrink-0" />
-                                      {client.name}
+                                    <td className="px-4 py-3 text-sm text-green-800">
+                                      <div className="flex items-center gap-2">
+                                        <Building2 className="w-3.5 h-3.5 text-green-400 flex-shrink-0" />
+                                        {client.name}
+                                      </div>
                                     </td>
-                                    <td className="px-4 py-3 text-sm text-accent-400/70">
+                                    <td className="px-4 py-3 text-sm text-green-600 font-medium">
                                       {client.location}
                                     </td>
                                   </motion.tr>
@@ -159,17 +162,17 @@ export default function ClientsClient() {
 
                         {/* Simple list for items */}
                         {category.items && (
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                             {category.items.map((item, i) => (
                               <motion.div
                                 key={item}
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="flex items-center gap-3 p-3 rounded-xl bg-white/3 border border-white/5"
+                                className="flex items-center gap-3 p-3 rounded-xl bg-white border border-green-100 hover:border-green-300 transition-colors"
                               >
-                                <CheckCircle2 className="w-4 h-4 text-accent-400 flex-shrink-0" />
-                                <span className="text-sm text-white/70">{item}</span>
+                                <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                                <span className="text-base text-green-800">{item}</span>
                               </motion.div>
                             ))}
                           </div>
@@ -181,6 +184,7 @@ export default function ClientsClient() {
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
     </>

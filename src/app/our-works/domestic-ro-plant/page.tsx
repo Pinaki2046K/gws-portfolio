@@ -245,7 +245,7 @@ export default function DomesticROPlantPage() {
               Get a Custom Quote
             </h3>
             <p className="text-green-100 text-base mb-6">
-              Tell us your requirements and we'll recommend the right capacity and variant for you.
+              Tell us your requirements and we&apos;ll recommend the right capacity and variant for you.
             </p>
             <Link
               href="/contact"

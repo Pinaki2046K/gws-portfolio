@@ -11,9 +11,9 @@ const services = [
     description:
       "High-quality reverse osmosis systems designed for home and residential use, delivering pure, safe drinking water straight from your tap.",
     image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80",
+      "/images/domestic.png",
     href: "/products/domestic-ro",
-    tag: "Products",
+    tag: "Product",
   },
   {
     title: "Water Treatment Plant – Domestic/Industry",
@@ -29,9 +29,9 @@ const services = [
     description:
       "Heavy-duty reverse osmosis systems built for large-scale industrial operations — ideal for process water, boiler feed, and pharmaceutical-grade purification.",
     image:
-      "https://images.unsplash.com/photo-1581093196277-9f608bb3b511?w=600&q=80",
+      "/images/industrial.png",
     href: "/products/industrial-ro",
-    tag: "Products",
+    tag: "Product",
   },
 ];
 

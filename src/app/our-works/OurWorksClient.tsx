@@ -10,8 +10,20 @@ const works = [
   {
     title: "Domestic RO Plant",
     description:
-      "Comprehensive water treatment facilities combining filtration, softening, and purification to deliver safe drinking and process water for industries, hospitals, and government institutions.",
-    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80",
+      "High-quality reverse osmosis systems designed for home and residential use, delivering pure, safe drinking water. Available in 10, 25, 50, and 100 LPH capacities with UV, UF, Alkaline, Mineral Booster, and TDS Controller variants.",
+    image: "/images/domestic.png",
+    href: "/our-works/domestic-ro-plant",
+    tags: ["RO", "UV", "UF"],
+    stats: [
+      { label: "Capacities Available", value: "4 Models" },
+      { label: "Range", value: "10–100 LPH" },
+    ],
+  },
+  {
+    title: "Water Treatment Plant – Domestic/Industry",
+    description:
+      "End-to-end water treatment solutions for both households and industries, converting raw water sources — Well, Bore, Municipal and Corporation water — into clean, usable water for drinking, bathing, cooking, washing, dialysis and process applications.",
+    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
     href: "/our-works/water-treatment",
     tags: ["Filtration", "Purification", "Industrial"],
     stats: [
@@ -20,39 +32,15 @@ const works = [
     ],
   },
   {
-    title: "Sewage & Effluent Treatment Plant",
+    title: "Industrial RO Plants",
     description:
-      "State-of-the-art STP and ETP plants ensuring compliance with TNPCB and CPCB standards. We handle organic, chemical, and industrial effluent with advanced biological and chemical processes.",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
+      "Heavy-duty reverse osmosis systems built for large-scale industrial operations — ideal for process water, boiler feed, pharmaceutical-grade purification, and zero liquid discharge applications across Tamil Nadu.",
+    image: "/images/industrial.png",
     href: "/our-works/sewage-effluent",
-    tags: ["STP", "ETP", "Compliance"],
+    tags: ["Industrial", "High-Capacity", "RO"],
     stats: [
       { label: "Plants Installed", value: "80+" },
       { label: "Industries Served", value: "12+" },
-    ],
-  },
-  {
-    title: "Zero Discharge Plant",
-    description:
-      "Advanced zero liquid discharge (ZLD) systems using multiple effect evaporation and crystallisation technology — meeting the most stringent environmental discharge norms.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    href: "/our-works/zero-discharge",
-    tags: ["ZLD", "MEE", "Crystallizer"],
-    stats: [
-      { label: "ZLD Plants", value: "30+" },
-      { label: "Recovery Rate", value: "99%+" },
-    ],
-  },
-  {
-    title: "Multi Stage Biological Treatment",
-    description:
-      "Innovative biological treatment systems using ASP, MBBR, and SAFF technologies for maximum organic load removal at minimal operational cost.",
-    image: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?w=800&q=80",
-    href: "/our-works/multi-stage-bio",
-    tags: ["MBBR", "ASP", "SAFF"],
-    stats: [
-      { label: "Bio Plants", value: "50+" },
-      { label: "BOD Removal", value: "98%+" },
     ],
   },
 ];
@@ -68,9 +56,9 @@ export default function OurWorksClient() {
         tag="Project Portfolio"
       />
 
-      <section className="py-24 bg-navy-900">
+      <section className="py-24 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
+          <div className="space-y-16">
             {works.map((work, i) => (
               <motion.div
                 key={work.title}
@@ -84,20 +72,23 @@ export default function OurWorksClient() {
               >
                 {/* Image */}
                 <div className={i % 2 === 1 ? "lg:col-start-2" : ""}>
-                  <Link href={work.href} className="group block relative rounded-3xl overflow-hidden h-72 lg:h-96">
+                  <Link
+                    href={work.href}
+                    className="group block relative rounded-3xl overflow-hidden h-72 lg:h-96 shadow-lg shadow-green-100"
+                  >
                     <Image
                       src={work.image}
                       alt={work.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-green-950/70 via-transparent to-transparent" />
                     {/* Tags overlay */}
                     <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
                       {work.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full bg-primary-500/20 backdrop-blur-sm border border-primary-500/30 text-xs font-mono text-accent-400"
+                          className="px-3 py-1 rounded-full bg-green-500/80 backdrop-blur-sm border border-green-400/50 text-xs font-mono text-white"
                         >
                           {tag}
                         </span>
@@ -108,20 +99,29 @@ export default function OurWorksClient() {
 
                 {/* Content */}
                 <div className={i % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
-                  <span className="text-xs font-mono text-primary-400 tracking-[0.3em] uppercase block mb-3">
+                  <span className="text-sm font-mono text-green-600 tracking-[0.3em] uppercase block mb-3">
                     {String(i + 1).padStart(2, "0")} / Works
                   </span>
-                  <h2 className="font-display text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
+                  <h2 className="font-display text-3xl lg:text-4xl font-bold text-green-950 mb-4 leading-tight">
                     {work.title}
                   </h2>
-                  <p className="text-white/50 leading-relaxed mb-6">{work.description}</p>
+                  <p className="text-green-700 text-base leading-relaxed mb-6">
+                    {work.description}
+                  </p>
 
                   {/* Stats */}
                   <div className="flex gap-6 mb-8">
                     {work.stats.map((stat) => (
-                      <div key={stat.label} className="p-4 rounded-xl glass border border-white/5 flex-1 text-center">
-                        <div className="font-display text-2xl font-bold gradient-text">{stat.value}</div>
-                        <div className="text-xs text-white/40 font-mono mt-1">{stat.label}</div>
+                      <div
+                        key={stat.label}
+                        className="p-4 rounded-xl bg-white border border-green-100 flex-1 text-center shadow-sm hover:border-green-300 transition-colors"
+                      >
+                        <div className="font-display text-2xl font-bold text-green-500">
+                          {stat.value}
+                        </div>
+                        <div className="text-sm text-green-600 font-mono mt-1">
+                          {stat.label}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -129,7 +129,7 @@ export default function OurWorksClient() {
                   <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Link
                       href={work.href}
-                      className="inline-flex items-center gap-2 px-6 py-3 btn-primary rounded-xl font-semibold text-white"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 rounded-xl font-semibold text-white shadow-lg shadow-green-500/30 hover:shadow-xl transition-all duration-200"
                     >
                       <span>Learn More</span>
                       <ArrowRight className="w-4 h-4" />

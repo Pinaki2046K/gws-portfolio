@@ -23,14 +23,14 @@ const capacities = [
   {
     lph: "50 LPH",
     ideal: "Clinics, canteens & hostels",
-    image: "/images/10lph.png",
+    image: "/images/50lph.png",
     color: "from-green-600 to-green-800",
     variants: ["UV", "UF", "Alkaline", "Mineral Booster", "TDS Controller"],
   },
   {
     lph: "100 LPH",
     ideal: "Gated communities & institutions",
-    image: "/images/10lph.png",
+    image: "/images/100lph.png",
     color: "from-green-700 to-green-900",
     variants: ["UV", "UF", "Alkaline", "Mineral Booster", "TDS Controller"],
   },

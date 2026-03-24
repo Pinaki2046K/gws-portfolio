@@ -139,16 +139,6 @@ The contact form is ready — just replace the simulated delay in `src/app/conta
 
 ---
 
-## 🔧 Customisation
-
-- **Company info:** Update in `src/components/layout/Footer.tsx` and `src/app/contact/ContactClient.tsx`
-- **Client list:** Edit `src/lib/clientsData.ts`
-- **Products list:** Edit `src/lib/productsData.ts`
-- **Images:** Replace Unsplash URLs with real project photos
-- **Logo:** Replace the `<Droplets>` icon in `Navbar.tsx` and `Footer.tsx` with your actual logo image
-
----
-
 ## 📦 Build for Production
 
 ```bash

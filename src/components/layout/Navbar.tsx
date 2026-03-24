@@ -6,30 +6,23 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Droplets } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const products = [
-  { name: "Water Filtration Plant", href: "/products/water-filtration" },
-  { name: "Water Softening Plant", href: "/products/water-softening" },
-  { name: "Demineralization", href: "/products/demineralization" },
-  { name: "Sea Water Desalination Plant", href: "/products/desalination" },
-  { name: "Extended Aeration with ASP", href: "/products/extended-aeration" },
-  { name: "Moving Bed Bio Reactor (MBBR)", href: "/products/mbbr" },
-  { name: "Submerged Aerobic Fixed Film Process (SAFF)", href: "/products/saff" },
-  { name: "Nano Filtration for Textile Industry", href: "/products/nano-filtration" },
-  { name: "Multiple Effect Evaporation Plant with Crystallizer", href: "/products/evaporation" },
-];
-
 const ourWorks = [
   { name: "Domestic RO Plant", href: "/our-works/domestic-ro-plant" },
-  { name: "Water treatment Plant", href: "/our-works/water-treatment" },
+  { name: "Water Treatment Plant", href: "/our-works/water-treatment" },
   { name: "Industrial RO Plants", href: "/our-works/industrial-ro-plant" },
-  // { name: "Multi Stage Biological Treatment", href: "/our-works/multi-stage-bio" },
+];
+
+const services = [
+  { name: "Comprehensive Maintenance Contract", href: "/services/comprehensive-maintenance" },
+  { name: "Annual Maintenance Contract", href: "/services/annual-maintenance" },
+  { name: "Breakdown Call / Call Basis", href: "/services/breakdown-call" },
 ];
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Our Works", href: "/our-works", submenu: ourWorks },
-  { name: "Products & Services", href: "/products", submenu: products },
+  { name: "Services", href: "/services", submenu: services },
   { name: "Clients", href: "/clients" },
   { name: "Contact Us", href: "/contact" },
 ];
@@ -78,11 +71,9 @@ export default function Navbar() {
               <Droplets className="w-6 h-6 text-white" />
             </motion.div>
             <div>
-              {/* text-lg → text-xl */}
               <div className="font-display text-xl font-bold leading-tight tracking-wide text-green-900 group-hover:text-green-600 transition-colors">
                 Global Water
               </div>
-              {/* text-[10px] → text-xs */}
               <div className="text-xs font-mono uppercase tracking-[0.2em] text-green-600">
                 Systems
               </div>
@@ -107,7 +98,6 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      // text-sm → text-base
                       "flex items-center gap-1 px-4 py-2 rounded-lg text-base font-medium transition-all duration-300",
                       link.name === "Contact Us"
                         ? "bg-green-500 hover:bg-green-600 px-5 py-2.5 rounded-xl font-semibold text-white shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/50"
@@ -147,7 +137,6 @@ export default function Navbar() {
                         >
                           <Link
                             href={item.href}
-                            // text-sm → text-base
                             className="flex items-center gap-3 px-5 py-3 text-base text-green-800 hover:text-green-900 hover:bg-green-50 transition-all duration-200 group border-b border-green-50 last:border-0"
                           >
                             <div className="w-1.5 h-1.5 rounded-full bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -189,7 +178,6 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        // text-sm → text-base
                         "flex-1 py-3 px-4 rounded-xl text-base font-medium transition-all",
                         pathname === link.href
                           ? "text-green-600 bg-green-100"
@@ -229,7 +217,6 @@ export default function Navbar() {
                           <Link
                             key={item.name}
                             href={item.href}
-                            // text-sm → text-base
                             className="block py-2.5 px-3 text-base text-green-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                           >
                             {item.name}

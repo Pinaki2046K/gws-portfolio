@@ -61,9 +61,7 @@ export default function ServicesOverview() {
               Our Core Services
             </h2>
             <p className="text-green-700 text-base max-w-xl mx-auto leading-relaxed">
-              From clean water supply to zero liquid discharge, we offer
-              complete environmental engineering solutions tailored to your
-              needs.
+              We deliver safe, clean, and healthy water solutions from water treatment and RO plants to value added services for residential communities, hotels, institutions, industries, healthcare, and government sectors.
             </p>
           </motion.div>
         </div>
@@ -127,7 +125,7 @@ export default function ServicesOverview() {
           className="text-center mt-12"
         >
           <Link
-            href="/products"
+            href="/our-works"
             className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-600 rounded-2xl font-semibold text-white text-base shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-200"
           >
             <span>View All Services</span>

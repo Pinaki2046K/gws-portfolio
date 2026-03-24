@@ -140,7 +140,7 @@ export default function HeroSection() {
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
               <Link
-                href="/products"
+                href="/our-works"
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-green-500 hover:bg-green-600 rounded-2xl font-semibold text-white transition-colors duration-200"
               >
                 <span>Explore Solutions</span>

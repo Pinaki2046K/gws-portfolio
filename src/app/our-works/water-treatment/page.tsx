@@ -5,8 +5,8 @@ const data = {
   subtitle:
     "Advanced water purification systems designed for industrial, institutional, and municipal applications.",
   heroImage:
-    "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&q=80",
-  tag: "Our Works",
+    "/images/indus-hero.png",
+  tag: "Our Works=80",
   breadcrumbLabel: "Water Treatment Plant",
   breadcrumbParentHref: "/our-works",
   description: [
@@ -32,9 +32,12 @@ const data = {
     "Hotels & Resorts",
   ],
   images: [
-    "https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=800&q=80",
-    "https://images.unsplash.com/photo-1580974852861-8eb7c7f9b0c2?w=400&q=80",
-    "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=400&q=80",
+    "/images/indus.png",
+    "/images/indus-2.png",
+    "/images/indus-3.png",
+    "/images/indus-4.png",
+    
+    
   ],
   process: [
     { step: "01", title: "Site Survey", desc: "Feed water analysis and requirement assessment." },

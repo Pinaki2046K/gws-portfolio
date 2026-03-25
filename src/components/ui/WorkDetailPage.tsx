@@ -66,7 +66,6 @@ export default function WorkDetailPage({ data }: Props) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              {/* Key Features */}
               <div className="p-6 rounded-2xl bg-white border border-green-100 shadow-sm mb-6">
                 <h3 className="font-semibold text-green-900 text-base mb-4 font-display">
                   Key Features
@@ -81,7 +80,6 @@ export default function WorkDetailPage({ data }: Props) {
                 </ul>
               </div>
 
-              {/* Applications */}
               <div className="p-6 rounded-2xl bg-white border border-green-100 shadow-sm">
                 <h3 className="font-semibold text-green-900 text-base mb-4 font-display">
                   Applications
@@ -100,7 +98,7 @@ export default function WorkDetailPage({ data }: Props) {
             </motion.div>
           </div>
 
-          {/* Image gallery */}
+          {/* Image gallery — uniform grid */}
           <div className="mb-20">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {data.images.map((img, i) => (
@@ -110,9 +108,7 @@ export default function WorkDetailPage({ data }: Props) {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className={`relative rounded-2xl overflow-hidden ${
-                    i === 0 ? "md:col-span-2 h-72" : "h-48"
-                  }`}
+                  className="relative rounded-2xl overflow-hidden h-56"
                 >
                   <Image
                     src={img}

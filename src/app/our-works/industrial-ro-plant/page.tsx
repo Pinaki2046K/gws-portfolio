@@ -32,9 +32,9 @@ const data = {
     "Dialysis Centres",
   ],
   images: [
-    "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
-    "https://images.unsplash.com/photo-1581093196277-9f608bb3b511?w=400&q=80",
-    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&q=80",
+    "/images/25-lph-indus.png",
+    "/images/500-lph-indus.png",
+    "/images/25-lph-indus-3.png",
   ],
   process: [
     { step: "01", title: "Feed Analysis", desc: "Complete water quality testing and TDS characterisation." },

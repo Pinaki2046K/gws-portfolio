@@ -10,17 +10,16 @@ const data = {
   breadcrumbLabel: "Water Treatment Plant",
   breadcrumbParentHref: "/our-works",
   description: [
-    "Global Water Systems designs and commissions comprehensive Water Treatment Plants that deliver safe, clean water for a variety of end uses. Our solutions integrate pressure sand filters, activated carbon filters, iron removal filters, softeners, and reverse osmosis systems into a seamless process train.",
+    "Global Water Systems designs and commissions comprehensive Water Treatment Plants that deliver safe, clean water for a variety of end uses. Our solutions integrate pressure sand filters, activated carbon filters, iron removal filters and softeners into a seamless process train.",
     "Every plant we build is custom-engineered to meet the specific feed water quality and end-use requirements of our clients — from government hospitals requiring ultrapure water for dialysis, to large industrial complexes needing high-volume process water.",
   ],
   features: [
     "Pressure Sand Filter (PSF) for suspended solids removal",
     "Activated Carbon Filter (ACF) for chlorine and odour removal",
-    "Iron Removal Filter for high-iron borewell water",
-    "Multi-grade sand filtration with automatic backwash",
+    "Iron Removal Filter for high-iron borewell water, effectively treating yellow-coloured, iron-contaminated water.",
+    "Multi-grade sand filtration system with automatic backwash and rinse cycles for efficient and thorough cleaning.",
     "UV sterilisation and micron cartridge filtration",
-    "PLC-based automation for unattended operation",
-    "High-efficiency energy recovery systems",
+    
   ],
   applications: [
     "Hospitals & Healthcare",

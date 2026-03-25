@@ -205,15 +205,11 @@ export default function AboutClient() {
               <p className="text-green-700 text-base leading-relaxed mb-4">
                 Global Water Systems provides Environmental Services, Consultancy
                 Services, Design, Erection and Commissioning of RO Plants, Softeners,
-                Pressure Sand Filters, Activated Carbon Filters, Iron Removal Filters,
-                Effluent Treatment Plants (ETP), Sewage Treatment Plants (STP), Hydro
-                Pneumatic Systems, and Water Treatment Chemicals.
+                Pressure Sand Filters, Activated Carbon Filters, Iron Removal Filters.
               </p>
               <p className="text-green-700 text-base leading-relaxed mb-6">
-                We specialize in Water, Wastewater, and Industrial Effluent Systems and
-                offer integrated solutions for customer satisfaction. Our company has two
-                decades of experience executing turnkey projects — for Industry, Home,
-                Colleges, Hospitals, Educational Institutions, and Club Projects.
+               We specialize in water solutions, delivering integrated systems focused on customer satisfaction. With over two decades of experience, we execute turnkey projects across industries, homes, colleges, hospitals, educational institutions, and clubs.
+
               </p>
               <div className="p-5 rounded-2xl bg-green-100 border border-green-200">
                 <p className="text-base text-green-900 font-semibold mb-1">Quality Policy</p>

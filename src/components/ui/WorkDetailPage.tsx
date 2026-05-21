@@ -1,9 +1,10 @@
 "use client";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/ui/PageHero";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface WorkDetail {
   title: string;
@@ -24,6 +25,25 @@ interface Props {
 }
 
 export default function WorkDetailPage({ data }: Props) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft" && lightboxIndex > 0) setLightboxIndex(lightboxIndex - 1);
+      if (e.key === "ArrowRight" && lightboxIndex < data.images.length - 1) setLightboxIndex(lightboxIndex + 1);
+    };
+    document.addEventListener("keydown", handler);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handler);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, closeLightbox, data.images.length]);
+
   return (
     <>
       <PageHero
@@ -108,15 +128,21 @@ export default function WorkDetailPage({ data }: Props) {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="relative rounded-2xl overflow-hidden h-56"
+                  className="relative rounded-2xl overflow-hidden h-56 cursor-pointer group"
+                  onClick={() => setLightboxIndex(i)}
                 >
                   <Image
                     src={img}
                     alt={`${data.title} ${i + 1}`}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-950/40 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-11 h-11 rounded-full bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center">
+                      <ZoomIn className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -179,6 +205,77 @@ export default function WorkDetailPage({ data }: Props) {
 
         </div>
       </section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+            onClick={closeLightbox}
+          >
+            <div className="absolute inset-0 bg-green-950/85 backdrop-blur-md" />
+
+            {/* Close */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Counter */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
+              <span className="text-sm font-mono text-white/60 tracking-wider">
+                {lightboxIndex + 1} / {data.images.length}
+              </span>
+            </div>
+
+            {/* Prev */}
+            {lightboxIndex > 0 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(lightboxIndex - 1); }}
+                className="absolute left-4 sm:left-8 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+            )}
+
+            {/* Next */}
+            {lightboxIndex < data.images.length - 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(lightboxIndex + 1); }}
+                className="absolute right-4 sm:right-8 z-20 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            )}
+
+            {/* Image */}
+            <motion.div
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={data.images[lightboxIndex]}
+                alt={`${data.title} ${lightboxIndex + 1}`}
+                fill
+                sizes="90vw"
+                className="object-contain bg-green-950/50"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

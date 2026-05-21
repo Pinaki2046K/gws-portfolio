@@ -143,48 +143,92 @@ export default function AboutClient() {
               transition={{ duration: 0.7 }}
               className="relative"
             >
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="relative h-48 rounded-2xl overflow-hidden">
-                    <Image
-                      src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&q=80"
-                      alt="Water plant"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-32 rounded-2xl overflow-hidden">
-                    <Image
-                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
-                      alt="Treatment"
-                      fill
-                      className="object-cover"
-                    />
+              {/* Decorative dot grid */}
+              <div className="absolute -top-6 -left-6 w-24 h-24 opacity-20 pointer-events-none"
+                style={{
+                  backgroundImage: 'radial-gradient(circle, #16a34a 1.5px, transparent 1.5px)',
+                  backgroundSize: '12px 12px',
+                }}
+              />
+
+              {/* Bento Grid */}
+              <div className="grid grid-rows-[1fr_auto] gap-4">
+                {/* Hero image — full width, tall */}
+                <div className="relative h-64 rounded-3xl overflow-hidden group shadow-lg shadow-green-200/40">
+                  <Image
+                    src="/images/industrial.png"
+                    alt="Industrial RO Plant Installation"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-green-950/70 via-green-950/10 to-transparent" />
+                  <div className="absolute bottom-4 left-5">
+                    <span className="px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-mono text-white tracking-wider uppercase">
+                      Industrial Project
+                    </span>
                   </div>
                 </div>
-                <div className="space-y-4 pt-8">
-                  <div className="relative h-32 rounded-2xl overflow-hidden">
+
+                {/* Bottom row — three images */}
+                <div className="grid grid-cols-3 gap-4">
+                  {/* Domestic RO */}
+                  <div className="relative h-36 rounded-2xl overflow-hidden group shadow-md shadow-green-200/30 bg-gradient-to-br from-green-50 to-white border border-green-100">
                     <Image
-                      src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=400&q=80"
-                      alt="Engineers"
+                      src="/images/domestic.png"
+                      alt="Domestic RO Systems"
                       fill
-                      className="object-cover"
+                      sizes="(max-width: 768px) 33vw, 15vw"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-green-950/50 via-transparent to-transparent" />
+                    <div className="absolute bottom-2.5 left-3">
+                      <span className="text-[10px] font-mono text-white/90 tracking-wider uppercase">Domestic</span>
+                    </div>
                   </div>
-                  <div className="relative h-48 rounded-2xl overflow-hidden">
+
+                  {/* 500 LPH */}
+                  <div className="relative h-36 rounded-2xl overflow-hidden group shadow-md shadow-green-200/30 bg-gradient-to-br from-green-100 via-green-50 to-white border border-green-100">
                     <Image
-                      src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&q=80"
-                      alt="Plant"
+                      src="/images/500-lph-indus.png"
+                      alt="500 LPH Water Treatment Plant"
                       fill
-                      className="object-cover"
+                      sizes="(max-width: 768px) 33vw, 15vw"
+                      className="object-contain object-center p-3 transition-transform duration-700 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-green-950/30 via-transparent to-transparent" />
+                    <div className="absolute bottom-2.5 left-3">
+                      <span className="text-[10px] font-mono text-green-800 tracking-wider uppercase">500 LPH</span>
+                    </div>
+                  </div>
+
+                  {/* 25 LPH */}
+                  <div className="relative h-36 rounded-2xl overflow-hidden group shadow-md shadow-green-200/30 bg-gradient-to-br from-green-50 via-white to-green-50 border border-green-100">
+                    <Image
+                      src="/images/25-lph-indus.png"
+                      alt="25 LPH RO Plant"
+                      fill
+                      sizes="(max-width: 768px) 33vw, 15vw"
+                      className="object-contain object-center p-3 transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-green-950/25 via-transparent to-transparent" />
+                    <div className="absolute bottom-2.5 left-3">
+                      <span className="text-[10px] font-mono text-green-800 tracking-wider uppercase">25 LPH</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-4 bg-white border border-green-200 shadow-xl shadow-green-100 rounded-2xl p-4 text-center">
-                <div className="font-display text-3xl font-bold text-green-500">20+</div>
-                <div className="text-xs text-green-600 font-mono uppercase tracking-wider">
-                  Years Experience
+
+              {/* Floating badge */}
+              <div className="absolute -bottom-5 -right-5 z-10">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-green-400/20 blur-xl scale-150" />
+                  <div className="relative bg-white border border-green-200 shadow-xl shadow-green-200/50 rounded-2xl px-5 py-4 text-center">
+                    <div className="font-display text-3xl font-bold text-green-500">20+</div>
+                    <div className="text-[10px] text-green-600 font-mono uppercase tracking-widest">
+                      Years Experience
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

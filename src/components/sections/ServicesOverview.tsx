@@ -11,7 +11,7 @@ const services = [
     description:
       "High-quality reverse osmosis systems designed for home and residential use, delivering pure, safe drinking water straight from your tap.",
     image:
-      "/images/domestic.png",
+      "/images/domestic-ro-service.png",
     href: "/products/domestic-ro",
     tag: "Product",
   },
@@ -20,7 +20,7 @@ const services = [
     description:
       "End-to-end water treatment solutions for both households and industries, converting raw water sources into clean, usable water for every application.",
     image:
-      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80",
+      "/images/water-treatment-service.png",
     href: "/our-works/water-treatment",
     tag: "Our Works",
   },
@@ -29,7 +29,7 @@ const services = [
     description:
       "Heavy-duty reverse osmosis systems built for large-scale industrial operations — ideal for process water, boiler feed, and pharmaceutical-grade purification.",
     image:
-      "/images/industrial.png",
+      "/images/industrial-ro-service.png",
     href: "/products/industrial-ro",
     tag: "Product",
   },
@@ -83,12 +83,13 @@ export default function ServicesOverview() {
                 className="group block rounded-2xl overflow-hidden bg-white border border-green-100 hover:border-green-400 shadow-sm hover:shadow-lg hover:shadow-green-100 transition-all duration-500 h-full"
               >
                 {/* Image */}
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-green-950/60 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4">
